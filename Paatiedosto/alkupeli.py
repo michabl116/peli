@@ -35,6 +35,15 @@ print("""
 
 Play_start = input("WHERE DO YOU WANT TO START? CHOOSE THE CONTINET: ")
 fuktion.continet(Play_start)
+continet={"AS":"Asia", "AF":"Africa", "AF":"North_America", "SA":"South_America", "AT":"Antarctica", "EU":"Europe", "AU":"Australi"}
+
+if Play_start in continet:
+    print(f"Your mission begins now you are on the continent of {continet[Play_start]}")
+
+
+
+
+
 
 
 
