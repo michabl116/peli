@@ -1,8 +1,6 @@
-import sys
-from asyncio import sleep
-from datetime import time
-
+import fuktion2
 import fuktion
+
 print("""
          |========================================[-][o][x]|
          |                                                 |
@@ -14,18 +12,17 @@ print("""
          |=================================================|    """)
 
 
-"""print("Ennen aloittamista täytä tietosi")
+print("Ennen aloittamista täytä tietosi")
 first_name=input("name:")
 last_name=input("lastname:")
-birthdate= input("birthdate:")
-age=input("age:")"""
+age=int(input("age:"))
+#birthdate= input("birthdate:")
+fuktion2.date(first_name,last_name, age)
 
-print('"Peli ohje"')
+print("GAME GUIDE")
 
+print("Hello Agent 007, your mission begins. Choose the continent where you want to play.")
 
-
-
-#print("Hello Agent 007, your mission begins. Choose the continent where you want to play.")
 print("""
         Asia            =   AS
         Africa          =   AF
@@ -35,8 +32,12 @@ print("""
         Europe          =   EU
         Australi        =   AU
         """)
-continetkusy= input("Valitse  continent: ")
-fuktion.continet(continetkusy)
+
+Play_start = input("WHERE DO YOU WANT TO START? CHOOSE THE CONTINET: ")
+fuktion.continet(Play_start)
+
+
+
 #lentokone=input( '  "AIBUS 319" "AIRBUS 321" "BOEING 777" \n vaalitse lentokone :" ')
 
 
