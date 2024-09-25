@@ -12,7 +12,23 @@ print("""
          |=================================================|    """)
 
 
-print("Ennen aloittamista täytä tietosi")
+
+print("""
+Hello, Agent. Your mission begins now!
+The game starts by saving your data.
+You will be traveling through different airports,
+ trying to capture the villain. During your travels, 
+ you must keep track of your fuel level, 
+ and you will need to roll the dice to refuel. 
+ If you guess the challenge correctly, you'll be able to refuel, 
+ but if not, your fuel level will decrease.
+You will also ask at each airport if the villain is there. 
+If not, you will need to switch to another airport.""")
+
+
+
+
+print(" täytä tietosi:")
 first_name=input("name:")
 last_name=input("lastname:")
 age=int(input("age:"))
@@ -21,9 +37,10 @@ fuktion2.date(first_name,last_name, age)
 
 print("GAME GUIDE")
 
-print("Hello Agent 007, your mission begins. Choose the continent where you want to play.")
+
 
 print("""
+        Choose the continent where you want to play
         Asia            =   AS
         Africa          =   AF
         North America   =   NA
@@ -33,21 +50,26 @@ print("""
         Australi        =   AU
         """)
 
+vensa= "20L"
+taso = 1
+#valita continet
 Play_start = input("WHERE DO YOU WANT TO START? CHOOSE THE CONTINET: ")
-fuktion.continet(Play_start)
-continet={"AS":"Asia", "AF":"Africa", "AF":"North_America", "SA":"South_America", "AT":"Antarctica", "EU":"Europe", "AU":"Australi"}
+
+
+continet={"AS":"Asia", "AF":"Africa", "NA":"North_America", "SA":"South_America", "AT":"Antarctica", "EU":"Europe", "AU":"Australi"}
+#valita lento kone
+konet = {"pieni":"AIRBUS 319", "keski_kokoine":"AIRBUS 321" ,"iso":"BOEING 777" }
+lentokone=input( '  "pieni" "keski_kokoine" "iso" \n vaalitse lentokone :" ')
 
 if Play_start in continet:
-    print(f"Your mission begins now you are on the continent of {continet[Play_start]}")
+    if lentokone in konet:
+        if lentokone=="pieni":
+            print(f"Your mission begins now you are on the continent of {continet[Play_start]}")
+            fuktion.continet(Play_start)
+            print(f" venssa mara on {vensa}")
+            print(f"sun taso on {taso}")
 
 
-
-
-
-
-
-
-#lentokone=input( '  "AIBUS 319" "AIRBUS 321" "BOEING 777" \n vaalitse lentokone :" ')
 
 
 

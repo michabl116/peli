@@ -11,13 +11,13 @@ def continet(continent):
             autocommit=True
              )
         cursor = yh.cursor()
-        sql=f"SELECT airport.ident, airport.name FROM airport where continent='{continent}' "
+        sql=f"SELECT DISTINCT country.name FROM country INNER JOIN airport ON country.iso_country = airport.iso_country WHERE airport.continent = '{continent}';  "
 
         cursor.execute(sql)
         airports = cursor.fetchall()
         if airports:  # Check if there are results
             random_airport = random.choice(airports)  # Choose a random airport
-            print(random_airport[1])  # Print the 'ident' of the random airport
+            print(f"sinun peli alka kaupungissa {random_airport[0]}")  # Print the 'ident' of the random airport
         else:
             print("No airports found in this continent.")
 
@@ -29,8 +29,6 @@ def continet(continent):
     except mysql.connector.Error as err:
         print(err.msg)
 
-#continetkusy= input('"UE,NA,SA "\n Valitse  continent: ')
-#continet(continetkusy)
 
 def country(country):
     try:
