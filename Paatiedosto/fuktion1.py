@@ -17,18 +17,17 @@ def continet(continent):
         airports = cursor.fetchall()
         if airports:  # Check if there are results
             random_airport = random.choice(airports)  # Choose a random airport
-            print(f"sinun peli alka kaupungissa {random_airport[0]}")  # Print the 'ident' of the random airport
+            #print(f"sinun peli alka kaupungissa {random_airport[0]}")  # Print the 'ident' of the random airport
+            return random_airport[0]
         else:
             print("No airports found in this continent.")
 
         cursor.close()
         yh.close()
-
-
-
     except mysql.connector.Error as err:
         print(err.msg)
 
+""""
 
 def country(country):
     try:
@@ -50,6 +49,6 @@ def country(country):
 
     except mysql.connector.Error as err:
         print(err.msg)
-    return
+    return  """
 
 
