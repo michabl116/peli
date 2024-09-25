@@ -1,4 +1,5 @@
 import mysql.connector
+import random
 def continet(continent):
     try:
         yh = mysql.connector.connect(
@@ -13,14 +14,21 @@ def continet(continent):
         sql=f"SELECT airport.ident, airport.name FROM airport where continent='{continent}' "
 
         cursor.execute(sql)
-        for row in cursor:
-            print(row)
+        airports = cursor.fetchall()
+        if airports:  # Check if there are results
+            random_airport = random.choice(airports)  # Choose a random airport
+            print(random_airport[1])  # Print the 'ident' of the random airport
+        else:
+            print("No airports found in this continent.")
+
         cursor.close()
         yh.close()
 
+
+
     except mysql.connector.Error as err:
         print(err.msg)
-    return
+
 #continetkusy= input('"UE,NA,SA "\n Valitse  continent: ')
 #continet(continetkusy)
 
