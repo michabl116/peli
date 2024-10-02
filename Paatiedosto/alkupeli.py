@@ -26,8 +26,9 @@ YOU WILL BE TRAVELING THROUGH DIFFERENT AIRPORTS,
 YOU WILL ALSO ASK AT EACH AIRPORT IF THE VILLAIN IS THERE. 
 IF NOT, YOU WILL NEED TO SWITCH TO ANOTHER AIRPORT
 """
+#make the text go slowly
 palabras = texto.split()
-pausa = 0.5
+pausa = 0.2
 limite_caracteres = 50
 contador_caracteres = 0
 for palabra in palabras:
@@ -38,8 +39,8 @@ for palabra in palabras:
     contador_caracteres += len(palabra) + 1
     time.sleep(pausa)
 print()
-
-print("REGISTER: ")
+#====
+print(Fore.RED+"REGISTER:+"+Style.RESET_ALL)
 first_name=input("FIRST_NAME: ")
 last_name=input("LAST_NAME: ")
 age=int(input("AGE: "))
@@ -48,6 +49,7 @@ age=int(input("AGE: "))
 fuktion2.date(first_name,last_name, age)
 
 print("""
+        ======================
         CONTINENT :
         Asia            =   AS
         Africa          =   AF
@@ -56,6 +58,7 @@ print("""
         Antarctica      =   AT
         Europe          =   EU
         Australi        =   AU
+        ======================
         """)
 
 #valita continet
@@ -64,24 +67,36 @@ continet={"AS":"Asia", "AF":"Africa", "NA":"North_America", "SA":"South_America"
 
 #valita lento kone
 konet = {"pieni":"AIRBUS 319", "keski_kokoine":"AIRBUS 321" ,"iso":"BOEING 777" }
-lentokone=input( '  "small" "medium_size" "largel" \n cherish the airplane :" ')
+print("""
+=====================
+
+        "SMALL"  = S
+  "MEDIUM_SIZE"  = M 
+        "LARGE"  = L
+=====================
+        """)
+
+
+lentokone=input( " CHERISH THE AIRPLANE :")
 gas1= "10"
 gas2= "20%"
 gas3= "40%"
 gas4= "60%"
+gas5= "80%"
+gas6= "100%"
 level = 1
 if Play_start in continet:
     print(f"Your mission begins now you are on the continent of {continet[Play_start]}")
     country = fuktion1.continet(Play_start)
     print(f"sinun peli alka kaupungissa {country}")
 if lentokone in konet:
-    if lentokone=="small":
+    if lentokone=="S":
         print(f" GAS IS {gas1}")
         print(f"LEVEL IS {level}")
-    elif lentokone=="medium_size":
+    elif lentokone=="S":
         print(f" GAS IS {gas2}")
         print(f"LEVEL IS {level}")
-    elif lentokone=="largel":
+    elif lentokone=="L":
         print(f" GAS IS {gas3}")
         print(f" LEVEL IS {level}")
 print(f"YOU HAVE ARRIVED IN THE CITY {country} IT SEEMS YOU STARTED OUT WITH BAD LUCK.\n"
