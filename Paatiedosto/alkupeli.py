@@ -15,7 +15,7 @@ print("""
 init()
 print(Fore.RED + 'GAME GUIDE'+ Style.RESET_ALL)
 
-texto ="""HELLO, AGENT. YOUR MISSION BEGINS NOW!
+text1 ="""HELLO, AGENT. YOUR MISSION BEGINS NOW!
 THE GAME STARTS BY SAVING YOUR DATA.
 YOU WILL BE TRAVELING THROUGH DIFFERENT AIRPORTS,
  TRYING TO CAPTURE THE VILLAIN. DURING YOUR TRAVELS, 
@@ -27,20 +27,22 @@ YOU WILL ALSO ASK AT EACH AIRPORT IF THE VILLAIN IS THERE.
 IF NOT, YOU WILL NEED TO SWITCH TO ANOTHER AIRPORT
 """
 #make the text go slowly
-palabras = texto.split()
-pausa = 0.2
-limite_caracteres = 50
-contador_caracteres = 0
-for palabra in palabras:
-    if contador_caracteres + len(palabra) > limite_caracteres:
+text = text1.split()
+pause = 0.2
+character_limit = 50
+character_counter = 0
+for word in text:
+    if character_counter+ len(word) > character_limit:
         print()
-        contador_caracteres = 0
-    print(palabra, end=' ', flush=True)
-    contador_caracteres += len(palabra) + 1
-    time.sleep(pausa)
+        character_counter= 0
+    print(word, end=' ', flush=True)
+    character_counter += len(word) + 1
+    time.sleep(pause)
 print()
 #====
+#change text color
 print(Fore.RED+"REGISTER:+"+Style.RESET_ALL)
+#===
 first_name=input("FIRST_NAME: ")
 last_name=input("LAST_NAME: ")
 age=int(input("AGE: "))
@@ -61,12 +63,12 @@ print("""
         ======================
         """)
 
-#valita continet
-Play_start = input("WHERE DO YOU WANT TO START? CHOOSE THE CONTINET: ")
+
+Play_start = input("WHERE DO YOU WANT TO START\n CHOOSE THE CONTINET: ")
 continet={"AS":"Asia", "AF":"Africa", "NA":"North_America", "SA":"South_America", "AT":"Antarctica", "EU":"Europe", "AU":"Australi"}
 
 #valita lento kone
-konet = {"pieni":"AIRBUS 319", "keski_kokoine":"AIRBUS 321" ,"iso":"BOEING 777" }
+konet = {"small":"AIRBUS 319", "medium_size":"AIRBUS 321" ,"large":"BOEING 777" }
 print("""
 =====================
 
