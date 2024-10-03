@@ -13,21 +13,13 @@ def date(first_name, last_name,age ):
 
         if yh.is_connected():
             cursor = yh.cursor()
-
-
             query = "insert into player_information(first_name,last_name, age)VALUES(%s, %s, %s)"
             valores = (first_name, last_name, age)
-
-            # Ejecutar la query
             cursor.execute(query, valores)
-
-            # Confirmar la transacción
             yh.commit()
-
-            print("Datos insertados correctamente.")
-
+            print("DATA INSERTED CORRECTLY..")
     except Error as e:
-        print(f"Error al conectar a la base de datos: {e}")
+        print(f"Error connecting to database: {e}")
 
     finally:
         if yh.is_connected():
