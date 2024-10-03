@@ -8,8 +8,9 @@ import random
 import time
 from colorama import Fore, Back, Style, init
 
-from Paatiedosto import text_fuktion, fuktion3
+from Paatiedosto import text_fuktion, fuktion3,tunus
 from Paatiedosto.random1 import dictionary_A, random_key, dictionary_A, dictionary_B
+
 
 print("""
          |========================================[-][o][x]|
@@ -53,6 +54,8 @@ last_name=input("LAST_NAME: ")
 age=int(input("AGE: "))
 #Function 2 records in the database
 fuktion2.date(first_name,last_name, age)
+codigo_aleatorio = tunus.generar_codigo()
+print("Código aleatorio:", codigo_aleatorio)
 
 print("""
         ======================
@@ -69,7 +72,7 @@ print("""
 continet={"AS":"Asia", "AF":"Africa", "NA":"North_America", "SA":"South_America", "AT":"Antarctica", "EU":"Europe", "AU":"Australi"}
 
 Play_start = input("WHERE DO YOU WANT TO START\n CHOOSE THE CONTINET: ")
-konet = {"small":"AIRBUS 319", "medium_size":"AIRBUS 321" ,"large":"BOEING 777" }
+konet = {"S":"AIRBUS 319", "M":"AIRBUS 321" ,"L":"BOEING 777" }
 print("""
 =====================
    AIRCRAFT MODELS
@@ -79,15 +82,6 @@ print("""
 =====================
         """)
 lentokone=input( " CHERISH THE AIRPLANE :")
-if Play_start in continet:
-    print(f"YOUR MISSION BEGINS!\n YOU WILL START ON THE CONTINENT {Fore.RED + continet[Play_start]+ Style.RESET_ALL}")
-    country = fuktion1.continet(Play_start)
-    print(f"  IN THE COUNTRY OF {Fore.RED +country + Style.RESET_ALL} ")
-
-
-    city2 = fuktion3.airport_name_city(country)
-    print(F"AIRPORT NAME IS {city2[0]} IS LOCATE {city2[1]}")
-
 gas1= 10
 gas2= 20
 gas3= 40
@@ -100,25 +94,38 @@ if lentokone in konet:
     if lentokone=="S":
         print(f" GAS IS {gas6}")
 
-    elif lentokone=="S":
+    elif lentokone=="M":
         print(f" GAS IS {gas5}")
 
     elif lentokone=="L":
         print(f" GAS IS {gas4}")
+
+if Play_start in continet:
+    print(f"YOUR MISSION BEGINS!\n YOU WILL START ON THE CONTINENT {Fore.RED + continet[Play_start]+ Style.RESET_ALL}")
+    country = fuktion1.continet(Play_start)
+    print(f"  IN THE COUNTRY OF {Fore.RED +country + Style.RESET_ALL} ")
+
+
+    city2 = fuktion3.airport_name_city(country)
+    print(F"AIRPORT NAME IS {Fore.RED+city2[0]+Style.RESET_ALL} IS LOCATE {Fore.RED+city2[1]+Style.RESET_ALL}")
+print()
+print()
 
 Text2 = """IT SEEMS THAT THIS IS VERY BAD LUCK.
         THE THIEF IS VERY FAST AND IS NO LONGER AT 
         THIS AIRPORT. ROLL THE DICE TO JUMP TO THE 
         NEXT AIRPORT"""
 text_fuktion.print_with_delay(Text2)
-
+print()
+print()
 #heito noppaa
 game_dice = input('ROLL THE DICE "D": ')
 if game_dice== "D":
     if Play_start in continet:
         country = fuktion1.continet(Play_start)
-        print(f"YOU HAVE ARRIVED IN THE CITY OF{country}")
-
+        print(f"YOU HAVE ARRIVED IN THE CITY OF {Fore.RED+country+Style.RESET_ALL}")
+print()
+print()
 Text3 ="""IT SEEMS THE VILLAIN HAS BEEN TO THIS AIRPORT, BUT
    HE’S NOT CLEVER ENOUGH AND HAS LEFT YOU CLUES. 
    YOU HAVE THREE GATES TO CHOOSE FROM, BUT IF YOU PICK 

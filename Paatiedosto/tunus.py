@@ -7,5 +7,3 @@ def generar_codigo():
     return codigo
 
 # Ejemplo de uso
-codigo_aleatorio = generar_codigo()
-print("Código aleatorio:", codigo_aleatorio)
