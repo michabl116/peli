@@ -8,9 +8,22 @@ import random
 import time
 from colorama import Fore, Back, Style, init
 
-from Paatiedosto import text_fuktion, fuktion3, tunus, testi
-
-
+from Paatiedosto import text_fuktion, fuktion3, tunus, testi, fuktion4
+from Paatiedosto.fuktion4 import date_talenta
+gas1= 10
+gas2= 20
+gas3= 40
+gas4= 60
+gas5= 80
+gas6= 100
+less_gasoline= -10
+less_gasoline= -20
+less_gasoline= -50
+level = 1
+leve2 = 2
+leve3 = 3
+points1 = 500
+points2 = 1000
 
 print("""
          |========================================[-][o][x]|
@@ -83,20 +96,7 @@ print("""
 =====================
         """)
 lentokone=input( " CHERISH THE AIRPLANE :")
-gas1= 10
-gas2= 20
-gas3= 40
-gas4= 60
-gas5= 80
-gas6= 100
-less_gasoline= -10
-less_gasoline= -20
-less_gasoline= -50
-level = 1
-leve2 = 2
-leve3 = 3
-points1 = 500
-points2 = 1000
+
 if lentokone in konet:
     if lentokone=="S":
         print(f" GAS IS {gas6}")
@@ -109,12 +109,15 @@ if lentokone in konet:
 
 if Play_start in continet:
     print(f"YOUR MISSION BEGINS!\n YOU WILL START ON THE CONTINENT {Fore.RED + continet[Play_start]+ Style.RESET_ALL}")
+    cont=continet[Play_start]
     country = fuktion1.continet(Play_start)
     print(f"  IN THE COUNTRY OF {Fore.RED +country + Style.RESET_ALL} ")
 
 
+
     city2 = fuktion3.airport_name_city(country)
     print(F"AIRPORT NAME IS {Fore.RED+city2[0]+Style.RESET_ALL} IS LOCATE {Fore.RED+city2[1]+Style.RESET_ALL}")
+    fuktion4.date_talenta(first_name,level,cont,city2[0],ident)
 print()
 print()
 
@@ -143,9 +146,9 @@ Text3 ="""IT SEEMS THE VILLAIN HAS BEEN TO THIS AIRPORT, BUT
    GOOD LUCK!
 """
 text_fuktion.print_with_delay(Text3)
-
-
+print()
 door= input('CHOOSE THE DOOR "A" "B" "C":')
+print()
 if door=="A":
     elect_A = random1.get_random_value_as_int()
     if int(elect_A) <0:
