@@ -1,6 +1,6 @@
 import mysql.connector
 from mysql.connector import Error
-def date(first_name, last_name,age ):
+def date(first_name, last_name,ident, age ):
     try:
         yh = mysql.connector.connect(
             host='127.0.0.1',
@@ -13,8 +13,8 @@ def date(first_name, last_name,age ):
 
         if yh.is_connected():
             cursor = yh.cursor()
-            query = "insert into player_information(first_name,last_name, age)VALUES(%s, %s, %s)"
-            valores = (first_name, last_name, age)
+            query = "insert into player_information(first_name,last_name,ident, age)VALUES(%s, %s, %s,%s )"
+            valores = (first_name, last_name,ident, age)
             cursor.execute(query, valores)
             yh.commit()
             print("DATA INSERTED CORRECTLY..")

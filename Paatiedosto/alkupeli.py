@@ -8,8 +8,8 @@ import random
 import time
 from colorama import Fore, Back, Style, init
 
-from Paatiedosto import text_fuktion, fuktion3,tunus
-from Paatiedosto.random1 import dictionary_A, random_key, dictionary_A, dictionary_B
+from Paatiedosto import text_fuktion, fuktion3, tunus, testi
+
 
 
 print("""
@@ -51,11 +51,12 @@ print(Fore.RED+"REGISTER:"+Style.RESET_ALL)
 #===
 first_name=input("FIRST_NAME: ")
 last_name=input("LAST_NAME: ")
+ident= tunus.agenti_tunus()
 age=int(input("AGE: "))
 #Function 2 records in the database
-fuktion2.date(first_name,last_name, age)
-codigo_aleatorio = tunus.generar_codigo()
-print("Código aleatorio:", codigo_aleatorio)
+fuktion2.date(first_name,last_name,ident, age)
+print("YOUR ADVICE KEY IS:", ident)
+
 
 print("""
         ======================
@@ -88,8 +89,14 @@ gas3= 40
 gas4= 60
 gas5= 80
 gas6= 100
+less_gasoline= -10
+less_gasoline= -20
+less_gasoline= -50
 level = 1
 leve2 = 2
+leve3 = 3
+points1 = 500
+points2 = 1000
 if lentokone in konet:
     if lentokone=="S":
         print(f" GAS IS {gas6}")
@@ -111,21 +118,24 @@ if Play_start in continet:
 print()
 print()
 
-Text2 = """IT SEEMS THAT THIS IS VERY BAD LUCK.
-        THE THIEF IS VERY FAST AND IS NO LONGER AT 
-        THIS AIRPORT. ROLL THE DICE TO JUMP TO THE 
-        NEXT AIRPORT"""
+Text2 = """
+        IT SEEMS THAT THE THIEF IS NO LONGER 
+        HERE, ROLL THE DICE TO JUMP TO THE 
+        NEXT AIRPORT """
 text_fuktion.print_with_delay(Text2)
 print()
-print()
+
 #heito noppaa
 game_dice = input('ROLL THE DICE "D": ')
 if game_dice== "D":
     if Play_start in continet:
         country = fuktion1.continet(Play_start)
+        city2 = fuktion3.airport_name_city(country)
         print(f"YOU HAVE ARRIVED IN THE CITY OF {Fore.RED+country+Style.RESET_ALL}")
+        print(f"el aeropuerto es{Fore.RED+city2[0]+Style.RESET_ALL} y la ciuda de {Fore.RED+city2[1]+Style.RESET_ALL}")
+
 print()
-print()
+
 Text3 ="""IT SEEMS THE VILLAIN HAS BEEN TO THIS AIRPORT, BUT
    HE’S NOT CLEVER ENOUGH AND HAS LEFT YOU CLUES. 
    YOU HAVE THREE GATES TO CHOOSE FROM, BUT IF YOU PICK 
@@ -135,12 +145,115 @@ Text3 ="""IT SEEMS THE VILLAIN HAS BEEN TO THIS AIRPORT, BUT
 text_fuktion.print_with_delay(Text3)
 
 
-
 door= input('CHOOSE THE DOOR "A" "B" "C":')
 if door=="A":
-    print(f"{dictionary_A[random_key]}")
-if door=="B":
-    print(f"{dictionary_B[random_key]}")
+    elect_A = random1.get_random_value_as_int()
+    if int(elect_A) <0:
+        print(f" I'M SORRY YOUR FUEL HAS DECREASED {elect_A}%" )
+    if int(elect_A) >0 and int(elect_A)<= 100  :
+        print(f" YOUR FUEL HAS INCREASED BY {elect_A}%" )
+    if int(elect_A) >= 500 and int(elect_A) <= 1000:
+            print(f" YOU HAVE OBTAINED THE CREDIT OF {elect_A}%")
+
+
+elif door=="B":
+    elect_B = random1.get_random_value_as_int()
+    if int(elect_B) < 0:
+        print(f" Lo siento tu conbustible a disminido el {elect_B}%")
+    elif int(elect_B) > 0 and int(elect_B) <= 100:
+        print(f" tu conbible a aumetado un {elect_B}%")
+    elif int(elect_B) >= 500 and int(elect_B) <= 1000:
+        print(f" as obtenido credito {elect_B}%")
+
+elif door=="C":
+    elect_C = random1.get_random_value_as_int()
+    if int(elect_C) < 0:
+        print(f" Lo siento tu conbustible a disminido el {elect_C}%")
+    elif int(elect_C) > 0 and int(elect_C) <= 100:
+        print(f" tu conbible a aumetado un {elect_C}%")
+    elif int(elect_C) >= 500 and int(elect_C) <= 1000:
+        print(f" as obtenido credito {elect_C}%")
+
+
+Text4= """
+         tienes que contiar con con el viaje
+         tira nueva mente los dados para saltar
+         de aeropuerto 
+         el malechor puede estar en el siginete
+        """
+text_fuktion.print_with_delay(Text4)
+print()
+game_dice = input('ROLL THE DICE "D": ')
+if game_dice== "D":
+    if Play_start in continet:
+        country = fuktion1.continet(Play_start)
+        city2 = fuktion3.airport_name_city(country)
+        print(f"YOU HAVE ARRIVED IN THE CITY OF {Fore.RED+country+Style.RESET_ALL}")
+        print(f"el aeropuerto es{Fore.RED+city2[0]+Style.RESET_ALL} y la ciuda de {Fore.RED+city2[1]+Style.RESET_ALL}")
+Text5 = """ 
+        denitiva  estas serca de capturar 
+        malechor  eleje uan puera para optener 
+        alguna reconpensa o
+        dificultad
+        """
+text_fuktion.print_with_delay(Text5)
+print()
+door= input('CHOOSE THE DOOR "A" "B" "C":')
+if door=="A":
+    elect_D = random1.get_random_value_as_int()
+    if int(elect_D) <0:
+        print(f" Lo siento tu conbustible a disminido el {elect_D}%" )
+    elif int(elect_D) >0 and int(elect_D)<= 100  :
+        print(f" tu conbible a aumetado un {elect_D}%" )
+    elif int(elect_D) >= 500 and int(elect_D) <= 1000:
+            print(f" as obtenido credito {elect_D}%")
+
+
+elif door=="B":
+    elect_E = random1.get_random_value_as_int()
+    if int(elect_E) < 0:
+        print(f" Lo siento tu conbustible a disminido el {elect_E}%")
+    elif int(elect_E) > 0 and int(elect_E) <= 100:
+        print(f" tu conbible a aumetado un {elect_E}%")
+    elif int(elect_E) >= 500 and int(elect_E) <= 1000:
+        print(f" as obtenido credito {elect_E}%")
+
+
+elif door=="C":
+    elect_f = random1.get_random_value_as_int()
+    if int(elect_f) < 0:
+        print(f" Lo siento tu conbustible a disminido el {elect_f}%")
+    elif int(elect_f) > 0 and int(elect_f) <= 100:
+        print(f" tu conbible a aumetado un {elect_f}%")
+    elif int(elect_f) >= 500 and int(elect_f) <= 1000:
+        print(f" as obtenido credito {elect_f}%")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
