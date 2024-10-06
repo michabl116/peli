@@ -8,8 +8,10 @@ import random
 import time
 from colorama import Fore, Back, Style, init
 
-from Paatiedosto import text_fuktion, fuktion3, tunus, testi, fuktion4
+from Paatiedosto import text_fuktion, fuktion3, tunus, testi, fuktion4, fuktion5
 from Paatiedosto.fuktion4 import date_goal
+import fuktion5
+
 gas1= 10
 gas2= 20
 gas3= 40
@@ -341,6 +343,7 @@ print()
 door_E= input('CHOOSE THE DOOR "A" "B" "C":')
 if door_E=="A":
     print("YOU HAVE CAUGHT THE THIEF CONGRATULATIONS!")
+    fuktion5.final_date(ident)
 
 elif door_B=="B":
     print("YOU HAVE CAUGHT THE THIEF CONGRATULATIONS!")
