@@ -1,6 +1,6 @@
 from traceback import print_tb
 
-import test2
+import lisata
 import fuktion2
 import fuktion1
 import random1
@@ -239,15 +239,17 @@ print()
 door_c= input('CHOOSE THE DOOR "A" "B" "C":')
 if door_c=="A":
     elect_A = random1.random_B()
-    points_incremet= test2.incrementar_columna(ident, elect_A)
+    points_incremet= lisata.incrementar_columna(ident, elect_A)
     if int(elect_A) >= 100 and int(elect_A) <= 500:
         print(f" YOU HAVE OBTAINED {elect_A} MORE POINTS ")
 elif door_c=="B":
     elect_B = random1.random_B()
+    points_incremet = lisata.incrementar_columna(ident, elect_B)
     if int(elect_B) >=100 and int(elect_B) <= 500:
         print(f" YOU HAVE OBTAINED {elect_B} MORE POINTS ")
 elif door_c=="C":
     elect_C = random1.random_B()
+    points_incremet = lisata.incrementar_columna(ident, elect_C)
     if int(elect_C) >=100 and int(elect_C) <= 500:
         print(f" YOU HAVE OBTAINED {elect_C} MORE POINTS ")
 
@@ -342,14 +344,19 @@ if game_dice == "D":
 print()
 door_E= input('CHOOSE THE DOOR "A" "B" "C":')
 if door_E=="A":
-    print("YOU HAVE CAUGHT THE THIEF CONGRATULATIONS!")
+    print(Fore.RED+"YOU HAVE CAUGHT THE THIEF CONGRATULATIONS!"+ Style.RESET_ALL)
+    print()
     fuktion5.final_date(ident)
 
 elif door_B=="B":
-    print("YOU HAVE CAUGHT THE THIEF CONGRATULATIONS!")
+    print(Fore.RED + "YOU HAVE CAUGHT THE THIEF CONGRATULATIONS!" + Style.RESET_ALL)
+    print()
+    fuktion5.final_date(ident)
 
 elif door_B=="C":
-    print("YOU HAVE CAUGHT THE THIEF CONGRATULATIONS!")
+    print(Fore.RED + "YOU HAVE CAUGHT THE THIEF CONGRATULATIONS!" + Style.RESET_ALL)
+    print()
+    fuktion5.final_date(ident)
 
 
 
