@@ -1,44 +1,35 @@
 
 import mysql.connector
-import random
+from mysql.connector import Error
 
-def airport_name_city(country):
+def incrementar_columna(ident, player_points):
     try:
         # Conexión a la base de datos
         yh = mysql.connector.connect(
             host='127.0.0.1',
             port=3306,
-            database='flight_game',
+            database='airportgame',
             user='root',
             password='1Peru20243#',
             autocommit=True
         )
-        cursor = yh.cursor()
 
-        # Consulta SQL utilizando parámetros para evitar inyección SQL
-        sql = """
-        SELECT airport.name, airport.municipality 
-        FROM airport 
-        INNER JOIN country ON country.iso_country = airport.iso_country 
-        WHERE country.name = %s
-        """
-        cursor.execute(sql, (country,))
-        airports = cursor.fetchall()
+        if yh.is_connected():
+            cursor = yh.cursor()
 
-        # Si hay aeropuertos en el resultado
-        if airports:
-            random_airport = random.choice(airports)  # Selecciona un aeropuerto al azar
-            airport_name, municipality = random_airport
-            return airport_name, municipality
-        else:
-            return None  # No se encontraron aeropuertos
+            # Incrementar el valor de la columna "score"
+            incrementar_query = "UPDATE player_goal SET player_points = player_points + %s WHERE ident = %s"
+            cursor.execute(incrementar_query, (player_points, ident))
+            yh.commit()
 
-    except mysql.connector.Error as err:
-        print(f"Error: {err.msg}")
+            print("Valor incrementado correctamente.")
+
+    except Error as e:
+        print(f"Error connecting to database: {e}")
+        if yh.is_connected():
+            yh.rollback()
 
     finally:
-        # Cierre de la conexión y el cursor
-        if cursor:
+        if yh.is_connected():
             cursor.close()
-        if yh:
             yh.close()

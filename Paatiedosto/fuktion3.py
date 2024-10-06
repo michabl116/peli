@@ -18,14 +18,14 @@ def airport_name_city(country):
         cursor.execute(sql)
         airports = cursor.fetchall()
 
-        # Si hay aeropuertos en el resultado
+        #
         if airports:
-            random_airport = random.choice(airports)  # Selecciona un aeropuerto al azar
+            random_airport = random.choice(airports)
             airport_name, municipality = random_airport[0], random_airport[1]
-            #print(f"Nombre del aeropuerto: {airport_name}, Municipio: {municipality}")
-            return airport_name, municipality  # También puedes devolver ambos valores si lo necesitas
+
+            return airport_name, municipality
         else:
-            print("No se encontraron aeropuertos en este país.")
+            print("No airports found in this country.")
 
         cursor.close()
         yh.close()
